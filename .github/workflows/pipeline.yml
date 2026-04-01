@@ -45,15 +45,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v6
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       - name: Check Python Version
         run:  python3 --version 
 
-      - name: Execute App.Py
-        run: python3 app.py
+      - name: Run Flask App
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate 
+          pip install flask 
+          python app.py
 
    
 
