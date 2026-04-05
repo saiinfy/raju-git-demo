@@ -8,4 +8,4 @@ def hello_world():
 
 if __name__ == "__main__":
     # This block is executed when the script is run directly
-    app.run(host="0.0.0.0", port=8000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
