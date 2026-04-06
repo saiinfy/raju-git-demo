@@ -59,14 +59,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sast-report
-          path: /home/runner/work/_temp/codeql_data/
+          path: /home/runner/work/_temp/codeql_databases/
           retention-days: 7  # Keep for 1 week instead of 90 days
 
 
 
   app_build:
     runs-on: self-hosted
-    needs: pre_check
+    needs: sast
     if: always()
 
     # Steps represent a sequence of tasks that will be executed as part of the job
