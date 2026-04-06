@@ -34,6 +34,34 @@ jobs:
         run: |
           python3 --version
 
+  sast:
+    name: SAST - CodeQL
+    needs: pre_check
+    runs-on: ubuntu-latest
+
+    permissions:
+      security-events: write
+      contents: read
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: Python
+      
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sast-report  # The name given to your artifact
+          path: ./ # The file or directory to upload
+
+
 
   app_build:
     runs-on: self-hosted
