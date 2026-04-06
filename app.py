@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "Hello, Raju Garu"
+    return "Hello, this is python"
 
 if __name__ == "__main__":
     # This block is executed when the script is run directly
