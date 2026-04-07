@@ -135,6 +135,4 @@ jobs:
           python3 -m venv venv
           source venv/bin/activate 
           pip install flask 
-          pm2 delete flask-app || true
-          pm2 start app.py --name flask-app --interpreter venv/bin/python
-   
+          python app.py &
