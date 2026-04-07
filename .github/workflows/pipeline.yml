@@ -99,6 +99,8 @@ jobs:
         with:
           target: "http://127.0.0.1:5000"
           fail_action: false
+        env:
+          ZAP_DOCKER_USER: root
 
       - name: Upload DAST report
         uses: actions/upload-artifact@v4
